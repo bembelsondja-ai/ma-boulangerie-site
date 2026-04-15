@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Ma Boulangerie Connectée</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-container {
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      text-align: center;
+    }
+    .contact-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 30px;
+      text-align: left;
+    }
+    .info-card {
+      padding: 20px;
+      background: var(--bg-dark);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+    .info-card h3 { color: var(--accent); margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo" onclick="window.location.href='index.html'">🍞 <span>Ma Boulangerie</span></div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Retour à l'accueil</a>
+    </div>
+  </nav>
+
+  <div class="contact-container">
+    <h1>📍 Nous contacter</h1>
+    <p>Une question sur nos pains personnalisés ? Nos experts nutritionnistes vous répondent.</p>
+
+    <div class="contact-info">
+      <div class="info-card">
+        <h3>🏠 Adresse</h3>
+        <p>12 rue de la Boulangerie<br/>75014 Paris, France</p>
+      </div>
+      <div class="info-card">
+        <h3>📞 Téléphone</h3>
+        <p>+33 1 23 45 67 89</p>
+      </div>
+      <div class="info-card">
+        <h3>✉️ Email</h3>
+        <p>contact@maboulangerie-sport.fr</p>
+      </div>
+      <div class="info-card">
+        <h3>⏰ Horaires</h3>
+        <p>Lun - Sam : 7h - 20h<br/>Dimanche : 8h - 13h</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <button class="btn-primary" onclick="window.location.href='index.html#configurateur'">🍞 Revenir au configurateur</button>
+    </div>
+  </div>
+
+</body>
+</html>
