@@ -19,24 +19,28 @@
   <nav class="navbar" id="navbar">
     <div class="nav-logo">🍞 <span>Ma Boulangerie</span></div>
     <div class="nav-links">
-      <a href="#" class="nav-link active" id="nav-accueil" onclick="showPage('home')">Accueil</a>
-      <a href="#" class="nav-link" id="nav-configurateur" onclick="showPage('configurateur')">Configurateur</a>
-      <a href="#" class="nav-link" id="nav-commandes" onclick="showPage('commandes')">Mes Commandes</a>
-      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="#" class="nav-link active" id="nav-accueil" onclick="showPage('home')" data-i18n="nav_home">Accueil</a>
+      <a href="#" class="nav-link" id="nav-configurateur" onclick="showPage('configurateur')" data-i18n="nav_config">Configurateur</a>
+      <a href="#" class="nav-link" id="nav-commandes" onclick="showPage('commandes')" data-i18n="nav_orders">Mes Commandes</a>
+      <a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a>
     </div>
     <div style="display:flex; align-items:center;">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="fr" onclick="changeLanguage('fr')">FR</button>
+        <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
+      </div>
       <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Changer de mode">🌓</button>
-      <button class="nav-cta" onclick="showPage('configurateur')" id="nav-cta-btn">Créer mon pain</button>
+      <button class="nav-cta" onclick="showPage('configurateur')" id="nav-cta-btn" data-i18n="nav_cta">Créer mon pain</button>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()">&#9776;</button>
   </nav>
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu">
-    <a href="#" onclick="showPage('home'); toggleMenu()">Accueil</a>
-    <a href="#" onclick="showPage('configurateur'); toggleMenu()">Configurateur</a>
-    <a href="#" onclick="showPage('commandes'); toggleMenu()">Mes Commandes</a>
-    <a href="contact.html">Contact</a>
+    <a href="#" onclick="showPage('home'); toggleMenu()" data-i18n="nav_home">Accueil</a>
+    <a href="#" onclick="showPage('configurateur'); toggleMenu()" data-i18n="nav_config">Configurateur</a>
+    <a href="#" onclick="showPage('commandes'); toggleMenu()" data-i18n="nav_orders">Mes Commandes</a>
+    <a href="contact.html" data-i18n="nav_contact">Contact</a>
   </div>
 
   <!-- ============================== PAGE: HOME ============================== -->
@@ -45,17 +49,17 @@
     <!-- HERO -->
     <section class="hero reveal">
       <div class="hero-content">
-        <div class="hero-badge">🌿 100% Naturel · Artisanal · Santé</div>
-        <h1 class="hero-title">Votre pain,<br/><span class="gradient-text">votre performance.</span></h1>
-        <p class="hero-subtitle">Composez un pain artisanal sur-mesure selon vos objectifs santé. Calcul nutritionnel en temps réel, livraison ou retrait express.</p>
+        <div class="hero-badge" data-i18n="hero_badge">🌿 100% Naturel · Artisanal · Santé</div>
+        <h1 class="hero-title" data-i18n="hero_title">Votre pain,<br/><span class="gradient-text">votre performance.</span></h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">Composez un pain artisanal sur-mesure selon vos objectifs santé. Calcul nutritionnel en temps réel, livraison ou retrait express.</p>
         <div class="hero-actions">
-          <button class="btn-primary" id="hero-cta-btn" onclick="showPage('configurateur')">🍞 Créer mon pain</button>
-          <button class="btn-secondary" onclick="scrollToFeatures()">Découvrir →</button>
+          <button class="btn-primary" id="hero-cta-btn" onclick="showPage('configurateur')" data-i18n="hero_cta">🍞 Créer mon pain</button>
+          <button class="btn-secondary" onclick="scrollToFeatures()" data-i18n="hero_discover">Découvrir →</button>
         </div>
         <div class="hero-stats">
-          <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Farines disponibles</span></div>
-          <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Ingrédients santé</span></div>
-          <div class="stat"><span class="stat-num">3min</span><span class="stat-label">Pour commander</span></div>
+          <div class="stat"><span class="stat-num">12+</span><span class="stat-label" data-i18n="stat_farines">Farines disponibles</span></div>
+          <div class="stat"><span class="stat-num">30+</span><span class="stat-label" data-i18n="stat_ingredients">Ingrédients santé</span></div>
+          <div class="stat"><span class="stat-num">3min</span><span class="stat-label" data-i18n="stat_order_time">Pour commander</span></div>
         </div>
       </div>
       <div class="hero-image-container">
@@ -69,61 +73,61 @@
 
     <!-- FEATURES -->
     <section class="features reveal" id="features">
-      <h2 class="section-title">Pourquoi choisir <span class="gradient-text">Ma Boulangerie</span> ?</h2>
+      <h2 class="section-title" data-i18n="section_why">Pourquoi choisir <span class="gradient-text">Ma Boulangerie</span> ?</h2>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">⚙️</div>
-          <h3>Configurateur Intelligent</h3>
-          <p>Choisissez votre base, vos objectifs et vos ingrédients. Les valeurs nutritionnelles se calculent instantanément.</p>
+          <h3 data-i18n="feat_config_title">Configurateur Intelligent</h3>
+          <p data-i18n="feat_config_desc">Choisissez votre base, vos objectifs et vos ingrédients. Les valeurs nutritionnelles se calculent instantanément.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🧬</div>
-          <h3>Calcul Nutritionnel Précis</h3>
-          <p>Chaque gramme de protéines, glucides et lipides est calculé en temps réel selon votre recette unique.</p>
+          <h3 data-i18n="feat_nutrition_title">Calcul Nutritionnel Précis</h3>
+          <p data-i18n="feat_nutrition_desc">Chaque gramme de protéines, glucides et lipides est calculé en temps réel selon votre recette unique.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">⚠️</div>
-          <h3>Gestion des Allergènes</h3>
-          <p>Alertes visuelles dynamiques pour le gluten, les noix et les produits laitiers. Votre sécurité au premier plan.</p>
+          <h3 data-i18n="feat_allergens_title">Gestion des Allergènes</h3>
+          <p data-i18n="feat_allergens_desc">Alertes visuelles dynamiques pour le gluten, les noix et les produits laitiers. Votre sécurité au premier plan.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">📦</div>
-          <h3>Retrait ou Livraison</h3>
-          <p>Click & Collect express ou livraison à domicile avec choix du créneau. Simple, rapide, fiable.</p>
+          <h3 data-i18n="feat_delivery_title">Retrait ou Livraison</h3>
+          <p data-i18n="feat_delivery_desc">Click & Collect express ou livraison à domicile avec choix du créneau. Simple, rapide, fiable.</p>
         </div>
       </div>
     </section>
 
     <!-- HOW IT WORKS -->
     <section class="how-it-works reveal">
-      <h2 class="section-title">Commander en <span class="gradient-text">3 étapes</span></h2>
+      <h2 class="section-title" data-i18n="section_steps">Commander en <span class="gradient-text">3 étapes</span></h2>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-content">
-            <h3>Configurez votre pain</h3>
-            <p>Choisissez la farine, les ingrédients santé et vos objectifs nutritionnels.</p>
+            <h3 data-i18n="step1_title">Configurez votre pain</h3>
+            <p data-i18n="step1_desc">Choisissez la farine, les ingrédients santé et vos objectifs nutritionnels.</p>
           </div>
         </div>
         <div class="step-arrow">→</div>
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-content">
-            <h3>Validez et payez</h3>
-            <p>Renseignez vos infos, choisissez livraison ou retrait, et payez en toute sécurité.</p>
+            <h3 data-i18n="step2_title">Validez et payez</h3>
+            <p data-i18n="step2_desc">Renseignez vos infos, choisissez livraison ou retrait, et payez en toute sécurité.</p>
           </div>
         </div>
         <div class="step-arrow">→</div>
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h3>Récupérez votre pain</h3>
-            <p>Recevez votre confirmation par email et savourez votre pain artisanal unique.</p>
+            <h3 data-i18n="step3_title">Récupérez votre pain</h3>
+            <p data-i18n="step3_desc">Recevez votre confirmation par email et savourez votre pain artisanal unique.</p>
           </div>
         </div>
       </div>
       <div class="cta-center">
-        <button class="btn-primary large" onclick="showPage('configurateur')" id="how-cta-btn">Commencer maintenant 🚀</button>
+        <button class="btn-primary large" onclick="showPage('configurateur')" id="how-cta-btn" data-i18n="btn_start_now">Commencer maintenant 🚀</button>
       </div>
     </section>
 
@@ -136,42 +140,42 @@
       <!-- LEFT: Configuration Panel -->
       <div class="config-panel">
         <div class="config-header">
-          <h1>🍞 Configurateur</h1>
-          <p>Créez votre pain parfait</p>
+          <h1 data-i18n="config_page_title">🍞 Configurateur</h1>
+          <p data-i18n="config_page_subtitle">Créez votre pain parfait</p>
         </div>
 
         <!-- STEP 1: Base -->
         <div class="config-section">
-          <h3 class="config-section-title"><span class="step-badge">1</span> Choisissez votre farine</h3>
+          <h3 class="config-section-title"><span class="step-badge">1</span> <span data-i18n="step_farine">Choisissez votre farine</span></h3>
           <div class="option-grid" id="farine-grid">
             <div class="option-card selected" data-type="farine" data-id="complet" onclick="selectOption(this, 'farine')">
               <div class="option-icon">🌾</div>
-              <div class="option-name">Blé Complet</div>
+              <div class="option-name" data-i18n="farine_complet">Blé Complet</div>
               <div class="option-desc">Riche en fibres</div>
             </div>
             <div class="option-card" data-type="farine" data-id="epeautre" onclick="selectOption(this, 'farine')">
               <div class="option-icon">🌿</div>
-              <div class="option-name">Épeautre</div>
+              <div class="option-name" data-i18n="farine_epeautre">Épeautre</div>
               <div class="option-desc">Protéines élevées</div>
             </div>
             <div class="option-card" data-type="farine" data-id="sansgluten" onclick="selectOption(this, 'farine')">
               <div class="option-icon">✨</div>
-              <div class="option-name">Sans Gluten</div>
+              <div class="option-name" data-i18n="farine_sansgluten">Sans Gluten</div>
               <div class="option-desc">Riz & sarrasin</div>
             </div>
             <div class="option-card" data-type="farine" data-id="seigle" onclick="selectOption(this, 'farine')">
               <div class="option-icon">🍂</div>
-              <div class="option-name">Seigle</div>
+              <div class="option-name" data-i18n="farine_seigle">Seigle</div>
               <div class="option-desc">Index glycémique bas</div>
             </div>
             <div class="option-card" data-type="farine" data-id="avoine" onclick="selectOption(this, 'farine')">
               <div class="option-icon">🥣</div>
-              <div class="option-name">Avoine</div>
+              <div class="option-name" data-i18n="farine_avoine">Avoine</div>
               <div class="option-desc">Béta-glucanes</div>
             </div>
             <div class="option-card" data-type="farine" data-id="multicereale" onclick="selectOption(this, 'farine')">
               <div class="option-icon">🌈</div>
-              <div class="option-name">Multicéréales</div>
+              <div class="option-name" data-i18n="farine_multicereale">Multicéréales</div>
               <div class="option-desc">Équilibre parfait</div>
             </div>
           </div>
@@ -179,87 +183,74 @@
 
         <!-- STEP 2: Objectifs -->
         <div class="config-section">
-          <h3 class="config-section-title"><span class="step-badge">2</span> Votre objectif santé</h3>
+          <h3 class="config-section-title"><span class="step-badge">2</span> <span data-i18n="step_objectif">Votre objectif santé</span></h3>
           <div class="option-grid" id="objectif-grid">
             <div class="option-card selected" data-type="objectif" data-id="muscle" onclick="selectOption(this, 'objectif')">
               <div class="option-icon">💪</div>
-              <div class="option-name">Récupération</div>
-              <div class="option-desc">Musculaire</div>
+              <div class="option-name" data-i18n="obj_muscle">Récupération</div>
             </div>
             <div class="option-card" data-type="objectif" data-id="energie" onclick="selectOption(this, 'objectif')">
               <div class="option-icon">⚡</div>
-              <div class="option-name">Énergie</div>
-              <div class="option-desc">Longue durée</div>
+              <div class="option-name" data-i18n="obj_energie">Énergie</div>
             </div>
             <div class="option-card" data-type="objectif" data-id="digestion" onclick="selectOption(this, 'objectif')">
               <div class="option-icon">🌱</div>
-              <div class="option-name">Digestion</div>
-              <div class="option-desc">Confort intestinal</div>
+              <div class="option-name" data-i18n="obj_digestion">Digestion</div>
             </div>
             <div class="option-card" data-type="objectif" data-id="minceur" onclick="selectOption(this, 'objectif')">
               <div class="option-icon">🎯</div>
-              <div class="option-name">Minceur</div>
-              <div class="option-desc">Contrôle calorique</div>
+              <div class="option-name" data-i18n="obj_minceur">Minceur</div>
             </div>
             <div class="option-card" data-type="objectif" data-id="immunite" onclick="selectOption(this, 'objectif')">
               <div class="option-icon">🛡️</div>
-              <div class="option-name">Immunité</div>
-              <div class="option-desc">Antioxydants</div>
+              <div class="option-name" data-i18n="obj_immunite">Immunité</div>
             </div>
           </div>
         </div>
 
         <!-- STEP 3: Ingrédients -->
         <div class="config-section">
-          <h3 class="config-section-title"><span class="step-badge">3</span> Ingrédients "Boost"</h3>
-          <p class="config-hint">Sélectionnez jusqu'à 4 ingrédients</p>
+          <h3 class="config-section-title"><span class="step-badge">3</span> <span data-i18n="step_boosts">Ingrédients "Boost"</span></h3>
+          <p class="config-hint" data-i18n="config_hint">Sélectionnez jusqu'à 4 ingrédients</p>
           <div class="ingredient-grid" id="ingredient-grid">
             <div class="ingredient-card" data-id="chia" onclick="toggleIngredient(this)">
               <span class="ing-icon">🌿</span>
-              <span class="ing-name">Graines de chia</span>
-              <span class="ing-macro">+3g Oméga-3</span>
+              <span class="ing-name" data-i18n="ing_chia">Graines de chia</span>
             </div>
             <div class="ingredient-card" data-id="quinoa" onclick="toggleIngredient(this)">
               <span class="ing-icon">🟡</span>
-              <span class="ing-name">Quinoa</span>
-              <span class="ing-macro">+5g Protéines</span>
+              <span class="ing-name" data-i18n="ing_quinoa">Quinoa</span>
             </div>
             <div class="ingredient-card" data-id="lin" onclick="toggleIngredient(this)">
               <span class="ing-icon">🔵</span>
-              <span class="ing-name">Graines de lin</span>
-              <span class="ing-macro">+4g Fibres</span>
+              <span class="ing-name" data-i18n="ing_lin">Graines de lin</span>
             </div>
             <div class="ingredient-card" data-id="spiruline" onclick="toggleIngredient(this)">
               <span class="ing-icon">💚</span>
-              <span class="ing-name">Spiruline</span>
-              <span class="ing-macro">+8g Protéines</span>
+              <span class="ing-name" data-i18n="ing_spiruline">Spiruline</span>
             </div>
             <div class="ingredient-card" data-id="tournesol" onclick="toggleIngredient(this)">
               <span class="ing-icon">🌻</span>
-              <span class="ing-name">Graines tournesol</span>
-              <span class="ing-macro">+Vitamine E</span>
+              <span class="ing-name" data-i18n="ing_tournesol">Graines tournesol</span>
             </div>
             <div class="ingredient-card" data-id="curcuma" onclick="toggleIngredient(this)">
               <span class="ing-icon">🟠</span>
-              <span class="ing-name">Curcuma</span>
-              <span class="ing-macro">Anti-inflammatoire</span>
+              <span class="ing-name" data-i18n="ing_curcuma">Curcuma</span>
             </div>
             <div class="ingredient-card" data-id="noix" onclick="toggleIngredient(this)">
               <span class="ing-icon">🥜</span>
-              <span class="ing-name">Noix & noisettes</span>
-              <span class="ing-macro">+6g Lipides sains</span>
+              <span class="ing-name" data-i18n="ing_noix">Noix & noisettes</span>
             </div>
             <div class="ingredient-card" data-id="proteines" onclick="toggleIngredient(this)">
               <span class="ing-icon">⚗️</span>
-              <span class="ing-name">Protéines végétales</span>
-              <span class="ing-macro">+12g Protéines</span>
+              <span class="ing-name" data-i18n="ing_proteines">Protéines végétales</span>
             </div>
           </div>
         </div>
 
         <!-- STEP 4: Taille & Prix -->
         <div class="config-section">
-          <h3 class="config-section-title"><span class="step-badge">4</span> Taille de la miche</h3>
+          <h3 class="config-section-title"><span class="step-badge">4</span> <span data-i18n="step_size">Taille de la miche</span></h3>
           <div class="size-options">
             <div class="size-card" data-size="S" onclick="selectSize(this)">
               <div class="size-label">S</div>
@@ -270,7 +261,6 @@
               <div class="size-label">M</div>
               <div class="size-weight">700g</div>
               <div class="size-price">7,90€</div>
-              <div class="size-popular">⭐ Populaire</div>
             </div>
             <div class="size-card" data-size="L" onclick="selectSize(this)">
               <div class="size-label">L</div>
@@ -282,17 +272,17 @@
 
         <!-- Allergen Alert -->
         <div class="allergen-box" id="allergen-box">
-          <div class="allergen-title">⚠️ Allergènes détectés</div>
+          <div class="allergen-title" data-i18n="config_allergen_alert">⚠️ Allergènes détectés</div>
           <div class="allergen-list" id="allergen-list"></div>
         </div>
 
         <!-- Favorite Name -->
         <div class="config-section">
-          <h3 class="config-section-title">💾 Nommer ma recette (optionnel)</h3>
-          <input type="text" id="recipe-name" class="recipe-name-input" placeholder='Ex: "Mon Pain Marathon"' maxlength="30" />
+          <h3 class="config-section-title" data-i18n="config_recipe_name">💾 Nommer ma recette (optionnel)</h3>
+          <input type="text" id="recipe-name" class="recipe-name-input" data-i18n-placeholder="config_recipe_placeholder" placeholder='Ex: "Mon Pain Marathon"' maxlength="30" />
         </div>
 
-        <button class="btn-primary full-width" onclick="showPage('commande')" id="config-next-btn">Valider ma configuration →</button>
+        <button class="btn-primary full-width" onclick="showPage('commande')" id="config-next-btn" data-i18n="btn_validate_config">Valider ma configuration →</button>
       </div>
 
       <!-- RIGHT: Live Preview -->
@@ -301,44 +291,44 @@
           <div class="preview-card">
             <div class="preview-bread">
               <div class="bread-visual" id="bread-visual">🍞</div>
-              <div class="bread-name" id="bread-preview-name">Votre pain personnalisé</div>
+              <div class="bread-name" id="bread-preview-name" data-i18n="preview_title">Votre pain personnalisé</div>
             </div>
 
             <!-- Macros -->
             <div class="macros-section">
-              <h4>📊 Valeurs nutritionnelles <small>(pour 100g)</small></h4>
+              <h4 data-i18n="preview_macros_title">📊 Valeurs nutritionnelles <small>(pour 100g)</small></h4>
               <div class="macro-bars">
                 <div class="macro-item">
                   <div class="macro-label-row">
-                    <span>🔥 Calories</span>
+                    <span data-i18n="macro_calories">🔥 Calories</span>
                     <span id="cal-val" class="macro-val">248 kcal</span>
                   </div>
                   <div class="macro-bar-bg"><div class="macro-bar cal-bar" id="cal-bar" style="width:60%"></div></div>
                 </div>
                 <div class="macro-item">
                   <div class="macro-label-row">
-                    <span>💪 Protéines</span>
+                    <span data-i18n="macro_proteins">💪 Protéines</span>
                     <span id="prot-val" class="macro-val">9g</span>
                   </div>
                   <div class="macro-bar-bg"><div class="macro-bar prot-bar" id="prot-bar" style="width:30%"></div></div>
                 </div>
                 <div class="macro-item">
                   <div class="macro-label-row">
-                    <span>⚡ Glucides</span>
+                    <span data-i18n="macro_carbs">⚡ Glucides</span>
                     <span id="gluc-val" class="macro-val">45g</span>
                   </div>
                   <div class="macro-bar-bg"><div class="macro-bar gluc-bar" id="gluc-bar" style="width:75%"></div></div>
                 </div>
                 <div class="macro-item">
                   <div class="macro-label-row">
-                    <span>🥑 Lipides</span>
+                    <span data-i18n="macro_lipids">🥑 Lipides</span>
                     <span id="lip-val" class="macro-val">3g</span>
                   </div>
                   <div class="macro-bar-bg"><div class="macro-bar lip-bar" id="lip-bar" style="width:15%"></div></div>
                 </div>
                 <div class="macro-item">
                   <div class="macro-label-row">
-                    <span>🌿 Fibres</span>
+                    <span data-i18n="macro_fibers">🌿 Fibres</span>
                     <span id="fib-val" class="macro-val">6g</span>
                   </div>
                   <div class="macro-bar-bg"><div class="macro-bar fib-bar" id="fib-bar" style="width:40%"></div></div>
@@ -349,25 +339,25 @@
             <!-- Summary -->
             <div class="price-summary">
               <div class="summary-row">
-                <span>Base</span>
-                <span id="summary-base">Blé Complet</span>
+                <span data-i18n="summary_base">Base</span>
+                <span id="summary-base"></span>
               </div>
               <div class="summary-row">
-                <span>Objectif</span>
-                <span id="summary-objectif">Récupération</span>
+                <span data-i18n="summary_goal">Objectif</span>
+                <span id="summary-objectif"></span>
               </div>
               <div class="summary-row">
-                <span>Boosts</span>
-                <span id="summary-ingredients">Aucun</span>
+                <span data-i18n="summary_boosts">Boosts</span>
+                <span id="summary-ingredients"></span>
               </div>
               <div class="summary-row">
-                <span>Taille</span>
-                <span id="summary-taille">M — 700g</span>
+                <span data-i18n="summary_size">Taille</span>
+                <span id="summary-taille"></span>
               </div>
               <div class="summary-divider"></div>
               <div class="summary-row price-row">
-                <span>Total</span>
-                <span id="summary-price" class="price-total">7,90€</span>
+                <span data-i18n="summary_total">Total</span>
+                <span id="summary-price" class="price-total"></span>
               </div>
             </div>
           </div>
@@ -380,8 +370,8 @@
   <div id="page-commande" class="page">
     <div class="commande-container">
       <div class="commande-header">
-        <button class="back-btn" onclick="showPage('configurateur')" id="commande-back-btn">← Modifier ma recette</button>
-        <h1>📋 Finaliser ma commande</h1>
+        <button class="back-btn" onclick="showPage('configurateur')" id="commande-back-btn" data-i18n="checkout_back_btn">← Modifier ma recette</button>
+        <h1 data-i18n="checkout_page_title">📋 Finaliser ma commande</h1>
       </div>
 
       <div class="commande-layout">
@@ -389,26 +379,26 @@
 
           <!-- Info client -->
           <div class="form-section">
-            <h3>👤 Vos informations</h3>
+            <h3 data-i18n="form_info_title">👤 Vos informations</h3>
             <div class="form-row">
               <div class="form-group">
-                <label for="prenom">Prénom *</label>
+                <label data-i18n="form_label_firstname">Prénom *</label>
                 <input type="text" id="prenom" placeholder="Jean" required />
                 <span class="field-error" id="err-prenom"></span>
               </div>
               <div class="form-group">
-                <label for="nom">Nom *</label>
+                <label data-i18n="form_label_lastname">Nom *</label>
                 <input type="text" id="nom" placeholder="Dupont" required />
                 <span class="field-error" id="err-nom"></span>
               </div>
             </div>
             <div class="form-group">
-              <label for="email">Email *</label>
+              <label data-i18n="form_label_email">Email *</label>
               <input type="email" id="email" placeholder="jean.dupont@email.com" required />
               <span class="field-error" id="err-email"></span>
             </div>
             <div class="form-group">
-              <label for="telephone">Téléphone *</label>
+              <label data-i18n="form_label_phone">Téléphone *</label>
               <input type="tel" id="telephone" placeholder="06 12 34 56 78" required />
               <span class="field-error" id="err-telephone"></span>
             </div>
@@ -416,21 +406,21 @@
 
           <!-- Livraison -->
           <div class="form-section">
-            <h3>🚚 Mode de livraison</h3>
+            <h3 data-i18n="delivery_title">🚚 Mode de livraison</h3>
             <div class="delivery-options">
               <div class="delivery-card selected" id="del-retrait" onclick="selectDelivery('retrait')">
                 <div class="delivery-icon">🏪</div>
                 <div class="delivery-info">
-                  <strong>Click & Collect</strong>
-                  <span>Retrait en boutique · Gratuit</span>
+                  <strong data-i18n="delivery_click_collect">Click & Collect</strong>
+                  <span data-i18n="delivery_cc_desc">Retrait en boutique · Gratuit</span>
                 </div>
                 <div class="delivery-check">✓</div>
               </div>
               <div class="delivery-card" id="del-livraison" onclick="selectDelivery('livraison')">
                 <div class="delivery-icon">🛵</div>
                 <div class="delivery-info">
-                  <strong>Livraison à domicile</strong>
-                  <span>+2,50€ · Dans la journée</span>
+                  <strong data-i18n="delivery_home">Livraison à domicile</strong>
+                  <span data-i18n="delivery_home_desc">+2,50€ · Dans la journée</span>
                 </div>
                 <div class="delivery-check">✓</div>
               </div>
@@ -438,22 +428,22 @@
 
             <!-- Adresse (conditionnelle) -->
             <div id="adresse-group" class="form-group" style="display:none;">
-              <label for="adresse">Adresse de livraison *</label>
+              <label data-i18n="form_label_address">Adresse de livraison *</label>
               <input type="text" id="adresse" placeholder="12 rue de la Santé, 75014 Paris" />
               <span class="field-error" id="err-adresse"></span>
             </div>
 
             <!-- Créneau -->
             <div class="form-group">
-              <label for="creneau">Créneau *</label>
+              <label data-i18n="form_label_slot">Créneau *</label>
               <select id="creneau" required>
-                <option value="">-- Choisir un créneau --</option>
-                <option value="8h-9h">Demain 8h00 – 9h00</option>
-                <option value="9h-10h">Demain 9h00 – 10h00</option>
-                <option value="10h-11h">Demain 10h00 – 11h00</option>
-                <option value="11h-12h">Demain 11h00 – 12h00</option>
-                <option value="14h-15h">Demain 14h00 – 15h00</option>
-                <option value="15h-16h">Demain 15h00 – 16h00</option>
+                <option value="" data-i18n="slot_placeholder">-- Choisir un créneau --</option>
+                <option value="8h-9h">Tomorrow 8h00 – 9h00</option>
+                <option value="9h-10h">Tomorrow 9h00 – 10h00</option>
+                <option value="10h-11h">Tomorrow 10h00 – 11h00</option>
+                <option value="11h-12h">Tomorrow 11h00 – 12h00</option>
+                <option value="14h-15h">Tomorrow 14h00 – 15h00</option>
+                <option value="15h-16h">Tomorrow 15h00 – 16h00</option>
               </select>
               <span class="field-error" id="err-creneau"></span>
             </div>
@@ -461,9 +451,9 @@
 
           <!-- Paiement -->
           <div class="form-section">
-            <h3>💳 Paiement sécurisé</h3>
+            <h3 data-i18n="payment_title">💳 Paiement sécurisé</h3>
             <div class="payment-methods">
-              <div class="pay-method selected" id="pay-card" onclick="selectPayment('card')">💳 Carte Bancaire</div>
+              <div class="pay-method selected" id="pay-card" onclick="selectPayment('card')" data-i18n="payment_card">💳 Carte Bancaire</div>
               <div class="pay-method" id="pay-apple" onclick="selectPayment('apple')">🍎 Apple Pay</div>
               <div class="pay-method" id="pay-google" onclick="selectPayment('google')">🅶 Google Pay</div>
             </div>
@@ -473,21 +463,11 @@
                 <input type="text" id="card-num" placeholder="•••• •••• •••• ••••" maxlength="19" oninput="formatCard(this)" />
                 <span class="field-error" id="err-card"></span>
               </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Expiration *</label>
-                  <input type="text" id="card-exp" placeholder="MM/AA" maxlength="5" oninput="formatExp(this)" />
-                </div>
-                <div class="form-group">
-                  <label>CVV *</label>
-                  <input type="text" id="card-cvv" placeholder="•••" maxlength="3" />
-                </div>
-              </div>
             </div>
-            <div class="secure-badge">🔒 Paiement 100% sécurisé · Données chiffrées SSL</div>
+            <div class="secure-badge" data-i18n="payment_secure_hint">🔒 Paiement 100% sécurisé · Données chiffrées SSL</div>
           </div>
 
-          <button class="btn-primary full-width large" onclick="submitOrder()" id="submit-order-btn">
+          <button class="btn-primary full-width large" onclick="submitOrder()" id="submit-order-btn" data-i18n="btn_confirm_order">
             ✅ Confirmer ma commande
           </button>
         </div>
@@ -495,12 +475,12 @@
         <!-- Order Summary -->
         <div class="order-summary-panel">
           <div class="order-summary-card">
-            <h3>🧾 Récapitulatif</h3>
+            <h3 data-i18n="summary_recap_title">🧾 Récapitulatif</h3>
             <div id="order-recap"></div>
             <div class="summary-divider"></div>
             <div class="summary-row price-row">
-              <span>Total à régler</span>
-              <span id="order-total" class="price-total">7,90€</span>
+              <span data-i18n="summary_to_pay">Total à régler</span>
+              <span id="order-total" class="price-total"></span>
             </div>
           </div>
         </div>
@@ -513,11 +493,11 @@
     <div class="confirmation-container">
       <div class="confirmation-card">
         <div class="conf-icon">🎉</div>
-        <h1>Commande confirmée !</h1>
-        <p class="conf-subtitle">Merci pour votre commande. Un email de confirmation a été envoyé à <strong id="conf-email"></strong></p>
+        <h1 data-i18n="conf_title">Commande confirmée !</h1>
+        <p class="conf-subtitle"><span data-i18n="conf_subtitle">Merci pour votre commande. Un email de confirmation a été envoyé à </span> <strong id="conf-email"></strong></p>
 
         <div class="order-number-badge">
-          Commande N° <span id="conf-order-num"></span>
+          <span data-i18n="conf_order_num">Commande N° </span> <span id="conf-order-num"></span>
         </div>
 
         <div class="conf-details" id="conf-details"></div>
@@ -526,24 +506,24 @@
           <div class="qr-placeholder" id="qr-code">
             <div class="qr-inner">
               <div class="qr-grid"></div>
-              <p>QR Code de retrait</p>
+              <p>QR Code</p>
               <p class="qr-num" id="qr-num"></p>
             </div>
           </div>
-          <p class="qr-hint">Présentez ce QR Code lors de votre retrait en boutique</p>
+          <p class="qr-hint" data-i18n="conf_qr_hint">Présentez ce QR Code lors de votre retrait en boutique</p>
         </div>
 
         <div class="conf-actions">
-          <button class="btn-primary" onclick="saveToFavorite()" id="save-fav-btn">💾 Sauvegarder cette recette</button>
-          <button class="btn-secondary" onclick="showPage('home')" id="new-order-btn">🍞 Nouvelle commande</button>
+          <button class="btn-primary" onclick="saveToFavorite()" data-i18n="btn_save_recipe">💾 Sauvegarder cette recette</button>
+          <button class="btn-secondary" onclick="showPage('home')" data-i18n="btn_new_order">🍞 Nouvelle commande</button>
         </div>
 
         <div class="resend-email">
-          Email non reçu ? <a href="#" onclick="resendEmail()" id="resend-btn">Renvoyer l'email →</a>
+          <span data-i18n="conf_resend_email">Email non reçu ? </span> <a href="#" onclick="resendEmail()" data-i18n="conf_resend_link">Renvoyer l'email →</a>
         </div>
 
         <div class="rating-section">
-          <p>Votre avis compte 🌟</p>
+          <p data-i18n="conf_rating_title">Votre avis compte 🌟</p>
           <div class="stars" id="rating-stars">
             <span onclick="rate(1)" id="star-1">☆</span>
             <span onclick="rate(2)" id="star-2">☆</span>
@@ -559,29 +539,18 @@
   <!-- ============================== PAGE: MES COMMANDES ============================== -->
   <div id="page-commandes" class="page">
     <div class="commandes-container">
-      <h1>📦 Mes Commandes & Favoris</h1>
-      <p class="commandes-subtitle">Retrouvez vos dernières commandes et recettes sauvegardées</p>
+      <h1 data-i18n="orders_page_title">📦 Mes Commandes & Favoris</h1>
+      <p class="commandes-subtitle" data-i18n="orders_page_subtitle">Retrouvez vos dernières commandes et recettes sauvegardées</p>
 
       <div class="commandes-layout">
         <div class="commandes-section">
-          <h2>🕐 Historique récent</h2>
-          <div id="history-list" class="history-list">
-            <div class="empty-state">
-              <div class="empty-icon">📭</div>
-              <p>Aucune commande pour le moment.</p>
-              <button class="btn-primary" onclick="showPage('configurateur')" id="history-start-btn">Créer ma première commande</button>
-            </div>
-          </div>
+          <h2 data-i18n="history_title">🕐 Historique récent</h2>
+          <div id="history-list" class="history-list"></div>
         </div>
 
         <div class="commandes-section">
-          <h2>💾 Mes recettes favorites</h2>
-          <div id="favorites-list" class="history-list">
-            <div class="empty-state">
-              <div class="empty-icon">⭐</div>
-              <p>Aucune recette sauvegardée.</p>
-            </div>
-          </div>
+          <h2 data-i18n="favs_title">💾 Mes recettes favorites</h2>
+          <div id="favorites-list" class="history-list"></div>
         </div>
       </div>
     </div>
@@ -593,12 +562,12 @@
   <!-- SAVE MODAL -->
   <div class="modal-overlay" id="save-modal" style="display:none;">
     <div class="modal">
-      <h3>💾 Sauvegarder la recette</h3>
-      <p>Donnez un nom à votre recette pour la retrouver facilement.</p>
-      <input type="text" id="fav-name-input" placeholder='Ex: "Mon Pain Marathon"' maxlength="30" />
+      <h3 data-i18n="modal_save_title">💾 Sauvegarder la recette</h3>
+      <p data-i18n="modal_save_desc">Donnez un nom à votre recette pour la retrouver facilement.</p>
+      <input type="text" id="fav-name-input" data-i18n-placeholder="config_recipe_placeholder" placeholder='Ex: "Mon Pain Marathon"' maxlength="30" />
       <div class="modal-actions">
-        <button class="btn-secondary" onclick="closeModal()" id="modal-cancel-btn">Annuler</button>
-        <button class="btn-primary" onclick="confirmSave()" id="modal-save-btn">Sauvegarder ✅</button>
+        <button class="btn-secondary" onclick="closeModal()" data-i18n="modal_btn_cancel">Annuler</button>
+        <button class="btn-primary" onclick="confirmSave()" data-i18n="modal_btn_save">Sauvegarder ✅</button>
       </div>
     </div>
   </div>

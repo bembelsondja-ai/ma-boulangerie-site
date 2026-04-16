@@ -15,26 +15,299 @@ const state = {
   currentOrder: null,
 };
 
+// ============================================================
+// TRANSLATIONS
+// ============================================================
+const translations = {
+  fr: {
+    nav_home: "Accueil",
+    nav_config: "Configurateur",
+    nav_orders: "Mes Commandes",
+    nav_contact: "Contact",
+    nav_cta: "Créer mon pain",
+    hero_badge: "🌿 100% Naturel · Artisanal · Santé",
+    hero_title: "Votre pain,<br/><span class=\"gradient-text\">votre performance.</span>",
+    hero_subtitle: "Composez un pain artisanal sur-mesure selon vos objectifs santé. Calcul nutritionnel en temps réel, livraison ou retrait express.",
+    hero_cta: "🍞 Créer mon pain",
+    hero_discover: "Découvrir →",
+    stat_farines: "Farines disponibles",
+    stat_ingredients: "Ingrédients santé",
+    stat_order_time: "Pour commander",
+    section_why: "Pourquoi choisir <span class=\"gradient-text\">Ma Boulangerie</span> ?",
+    feat_config_title: "Configurateur Intelligent",
+    feat_config_desc: "Choisissez votre base, vos objectifs et vos ingrédients. Les valeurs nutritionnelles se calculent instantanément.",
+    feat_nutrition_title: "Calcul Nutritionnel Précis",
+    feat_nutrition_desc: "Chaque gramme de protéines, glucides et lipides est calculé en temps réel selon votre recette unique.",
+    feat_allergens_title: "Gestion des Allergènes",
+    feat_allergens_desc: "Alertes visuelles dynamiques pour le gluten, les noix et les produits laitiers. Votre sécurité au premier plan.",
+    feat_delivery_title: "Retrait ou Livraison",
+    feat_delivery_desc: "Click & Collect express ou livraison à domicile avec choix du créneau. Simple, rapide, fiable.",
+    section_steps: "Commander en <span class=\"gradient-text\">3 étapes</span>",
+    step1_title: "Configurez votre pain",
+    step1_desc: "Choisissez la farine, les ingrédients santé et vos objectifs nutritionnels.",
+    step2_title: "Validez et payez",
+    step2_desc: "Renseignez vos infos, choisissez livraison ou retrait, et payez en toute sécurité.",
+    step3_title: "Récupérez votre pain",
+    step3_desc: "Recevez votre confirmation par email et savourez votre pain artisanal unique.",
+    btn_start_now: "Commencer maintenant 🚀",
+    config_page_title: "🍞 Configurateur",
+    config_page_subtitle: "Créez votre pain parfait",
+    step_farine: "Choisissez votre farine",
+    step_objectif: "Votre objectif santé",
+    step_boosts: "Ingrédients \"Boost\"",
+    config_hint: "Sélectionnez jusqu'à 4 ingrédients",
+    step_size: "Taille de la miche",
+    config_allergen_alert: "⚠️ Allergènes détectés",
+    config_recipe_name: "💾 Nommer ma recette (optionnel)",
+    config_recipe_placeholder: "Ex: \"Mon Pain Marathon\"",
+    btn_validate_config: "Valider ma configuration →",
+    preview_title: "Votre pain personnalisé",
+    preview_macros_title: "📊 Valeurs nutritionnelles <small>(pour 100g)</small>",
+    macro_calories: "🔥 Calories",
+    macro_proteins: "💪 Protéines",
+    macro_carbs: "⚡ Glucides",
+    macro_lipids: "🥑 Lipides",
+    macro_fibers: "🌿 Fibres",
+    summary_base: "Base",
+    summary_goal: "Objectif",
+    summary_boosts: "Boosts",
+    summary_size: "Taille",
+    summary_total: "Total",
+    checkout_back_btn: "← Modifier ma recette",
+    checkout_page_title: "📋 Finaliser ma commande",
+    form_info_title: "👤 Vos informations",
+    form_label_firstname: "Prénom *",
+    form_label_lastname: "Nom *",
+    form_label_email: "Email *",
+    form_label_phone: "Téléphone *",
+    delivery_title: "🚚 Mode de livraison",
+    delivery_click_collect: "Click & Collect",
+    delivery_cc_desc: "Retrait en boutique · Gratuit",
+    delivery_home: "Livraison à domicile",
+    delivery_home_desc: "+2,50€ · Dans la journée",
+    form_label_address: "Adresse de livraison *",
+    form_label_slot: "Créneau *",
+    slot_placeholder: "-- Choisir un créneau --",
+    payment_title: "💳 Paiement sécurisé",
+    payment_card: "💳 Carte Bancaire",
+    payment_secure_hint: "🔒 Paiement 100% sécurisé · Données chiffrées SSL",
+    btn_confirm_order: "✅ Confirmer ma commande",
+    summary_recap_title: "🧾 Récapitulatif",
+    summary_to_pay: "Total à régler",
+    conf_title: "Commande confirmée !",
+    conf_subtitle: "Merci pour votre commande. Un email de confirmation a été envoyé à ",
+    conf_order_num: "Commande N° ",
+    conf_qr_hint: "Présentez ce QR Code lors de votre retrait en boutique",
+    btn_save_recipe: "💾 Sauvegarder cette recette",
+    btn_new_order: "🍞 Nouvelle commande",
+    conf_resend_email: "Email non reçu ? ",
+    conf_resend_link: "Renvoyer l'email →",
+    conf_rating_title: "Votre avis compte 🌟",
+    orders_page_title: "📦 Mes Commandes & Favoris",
+    orders_page_subtitle: "Retrouvez vos dernières commandes et recettes sauvegardées",
+    history_title: "🕐 Historique récent",
+    favs_title: "💾 Mes recettes favorites",
+    empty_history: "Aucune commande pour le moment.",
+    empty_favs: "Aucune recette sauvegardée.",
+    btn_first_order: "Créer ma première commande",
+    modal_save_title: "💾 Sauvegarder la recette",
+    modal_save_desc: "Donnez un nom à votre recette pour la retrouver facilement.",
+    modal_btn_cancel: "Annuler",
+    modal_btn_save: "Sauvegarder ✅",
+    toast_max_ing: "⚠️ Maximum 4 ingrédients boost autorisés.",
+    toast_order_success: "✅ Commande confirmée ! Email envoyé.",
+    toast_fav_success: "💾 Recette sauvegardée !",
+    farine_complet: "Blé Complet",
+    farine_epeautre: "Épeautre",
+    farine_sansgluten: "Sans Gluten",
+    farine_seigle: "Seigle",
+    farine_avoine: "Avoine",
+    farine_multicereale: "Multicéréales",
+    obj_muscle: "Récupération",
+    obj_energie: "Énergie",
+    obj_digestion: "Digestion",
+    obj_minceur: "Minceur",
+    obj_immunite: "Immunité",
+    ing_chia: "Chia seeds",
+    ing_quinoa: "Quinoa",
+    ing_lin: "Graines de lin",
+    ing_spiruline: "Spirulina",
+    ing_tournesol: "Sunflower seeds",
+    ing_curcuma: "Turmeric",
+    ing_noix: "Walnuts & nuts",
+    ing_proteines: "Plant Proteins",
+  },
+  en: {
+    nav_home: "Home",
+    nav_config: "Configurator",
+    nav_orders: "My Orders",
+    nav_contact: "Contact",
+    nav_cta: "Create my bread",
+    hero_badge: "🌿 100% Natural · Artisanal · Healthy",
+    hero_title: "Your bread,<br/><span class=\"gradient-text\">your performance.</span>",
+    hero_subtitle: "A tailor-made artisan bread according to your health goals. Real-time nutritional calculation, express delivery or pickup.",
+    hero_cta: "🍞 Create my bread",
+    hero_discover: "Discover →",
+    stat_farines: "Flours available",
+    stat_ingredients: "Healthy ingredients",
+    stat_order_time: "To order",
+    section_why: "Why choose <span class=\"gradient-text\">My Bakery</span> ?",
+    feat_config_title: "Smart Configurator",
+    feat_config_desc: "Choose your base, your goals, and your ingredients. Nutritional values are calculated instantly.",
+    feat_nutrition_title: "Precise Nutritional Calculation",
+    feat_nutrition_desc: "Every gram of protein, carbs, and fats is calculated in real-time according to your unique recipe.",
+    feat_allergens_title: "Allergen Management",
+    feat_allergens_desc: "Dynamic visual alerts for gluten, nuts, and dairy products. Your safety first.",
+    feat_delivery_title: "Pickup or Delivery",
+    feat_delivery_desc: "Express Click & Collect or home delivery with time slot choice. Simple, fast, reliable.",
+    section_steps: "Order in <span class=\"gradient-text\">3 steps</span>",
+    step1_title: "Configure your bread",
+    step1_desc: "Choose the flour, healthy ingredients, and your nutritional goals.",
+    step2_title: "Validate and pay",
+    step2_desc: "Fill in your info, choose delivery or pickup, and pay securely.",
+    step3_title: "Get your bread",
+    step3_desc: "Receive your confirmation by email and enjoy your unique artisan bread.",
+    btn_start_now: "Start now 🚀",
+    config_page_title: "🍞 Configurator",
+    config_page_subtitle: "Create your perfect bread",
+    step_farine: "Choose your flour",
+    step_objectif: "Your health goal",
+    step_boosts: "\"Boost\" Ingredients",
+    config_hint: "Select up to 4 ingredients",
+    step_size: "Loaf size",
+    config_allergen_alert: "⚠️ Allergens detected",
+    config_recipe_name: "💾 Name my recipe (optional)",
+    config_recipe_placeholder: "Ex: \"My Marathon Bread\"",
+    btn_validate_config: "Validate my configuration →",
+    preview_title: "Your customized bread",
+    preview_macros_title: "📊 Nutritional values <small>(per 100g)</small>",
+    macro_calories: "🔥 Calories",
+    macro_proteins: "💪 Protein",
+    macro_carbs: "⚡ Carbs",
+    macro_lipids: "🥑 Fats",
+    macro_fibers: "🌿 Fibers",
+    summary_base: "Base",
+    summary_goal: "Goal",
+    summary_boosts: "Boosts",
+    summary_size: "Size",
+    summary_total: "Total",
+    checkout_back_btn: "← Edit my recipe",
+    checkout_page_title: "📋 Complete my order",
+    form_info_title: "👤 Your information",
+    form_label_firstname: "First Name *",
+    form_label_lastname: "Last Name *",
+    form_label_email: "Email *",
+    form_label_phone: "Phone *",
+    delivery_title: "🚚 Delivery method",
+    delivery_click_collect: "Click & Collect",
+    delivery_cc_desc: "Boutique pickup · Free",
+    delivery_home: "Home Delivery",
+    delivery_home_desc: "+2,50€ · Within the day",
+    form_label_address: "Delivery address *",
+    form_label_slot: "Time slot *",
+    slot_placeholder: "-- Choose a slot --",
+    payment_title: "💳 Secure Payment",
+    payment_card: "💳 Credit Card",
+    payment_secure_hint: "🔒 100% Secure Payment · SSL Encrypted",
+    btn_confirm_order: "✅ Confirm my order",
+    summary_recap_title: "🧾 Summary",
+    summary_to_pay: "Total to pay",
+    conf_title: "Order confirmed!",
+    conf_subtitle: "Thank you for your order. A confirmation email has been sent to ",
+    conf_order_num: "Order No. ",
+    conf_qr_hint: "Show this QR Code during pickup in the store",
+    btn_save_recipe: "💾 Save this recipe",
+    btn_new_order: "🍞 New order",
+    conf_resend_email: "Email not received? ",
+    conf_resend_link: "Resend email →",
+    conf_rating_title: "Your opinion matters 🌟",
+    orders_page_title: "📦 My Orders & Favorites",
+    orders_page_subtitle: "Find your latest orders and saved recipes",
+    history_title: "🕐 Recent history",
+    favs_title: "💾 My favorite recipes",
+    empty_history: "No orders yet.",
+    empty_favs: "No saved recipes yet.",
+    btn_first_order: "Create my first order",
+    modal_save_title: "💾 Save recipe",
+    modal_save_desc: "Give your recipe a name to find it easily.",
+    modal_btn_cancel: "Cancel",
+    modal_btn_save: "Save ✅",
+    toast_max_ing: "⚠️ Maximum 4 boost ingredients allowed.",
+    toast_order_success: "✅ Order confirmed! Email sent.",
+    toast_fav_success: "💾 Recipe saved!",
+    farine_complet: "Whole Wheat",
+    farine_epeautre: "Spelt",
+    farine_sansgluten: "Gluten-Free",
+    farine_seigle: "Rye",
+    farine_avoine: "Oat",
+    farine_multicereale: "Multigrain",
+    obj_muscle: "Muscle Recovery",
+    obj_energie: "Energy Boost",
+    obj_digestion: "Digestion",
+    obj_minceur: "Weight Control",
+    obj_immunite: "Immunity",
+    ing_chia: "Chia seeds",
+    ing_quinoa: "Quinoa",
+    ing_lin: "Flax seeds",
+    ing_spiruline: "Spirulina",
+    ing_tournesol: "Sunflower seeds",
+    ing_curcuma: "Turmeric",
+    ing_noix: "Walnuts & nuts",
+    ing_proteines: "Plant Proteins",
+  }
+};
+
+let currentLang = localStorage.getItem('mbc_lang') || 'fr';
+
+function changeLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('mbc_lang', lang);
+  
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (translations[lang] && translations[lang][key]) {
+      el.placeholder = translations[lang][key];
+    }
+  });
+
+  // Update language buttons active state
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+
+  // Update dynamic content
+  if (typeof updatePreview === 'function') updatePreview();
+  if (state.currentOrder && typeof buildOrderRecap === 'function') buildOrderRecap();
+  if (typeof loadHistory === 'function') loadHistory();
+}
+
 // Base nutrition data per farine (per 100g)
 const farineData = {
-  complet:      { cal: 248, prot: 9,  gluc: 45, lip: 3,  fib: 6,  allergens: ['gluten'], icon: '🌾', name: 'Blé Complet' },
-  epeautre:     { cal: 265, prot: 12, gluc: 43, lip: 3,  fib: 5,  allergens: ['gluten'], icon: '🌿', name: 'Épeautre' },
-  sansgluten:   { cal: 220, prot: 5,  gluc: 48, lip: 2,  fib: 4,  allergens: [],         icon: '✨', name: 'Sans Gluten' },
-  seigle:       { cal: 260, prot: 8,  gluc: 48, lip: 2,  fib: 7,  allergens: ['gluten'], icon: '🍂', name: 'Seigle' },
-  avoine:       { cal: 270, prot: 10, gluc: 47, lip: 4,  fib: 8,  allergens: ['gluten'], icon: '🥣', name: 'Avoine' },
-  multicereale: { cal: 255, prot: 10, gluc: 46, lip: 3,  fib: 7,  allergens: ['gluten'], icon: '🌈', name: 'Multicéréales' },
+  complet:      { cal: 248, prot: 9,  gluc: 45, lip: 3,  fib: 6,  allergens: ['gluten'], icon: '🌾', name: 'farine_complet' },
+  epeautre:     { cal: 265, prot: 12, gluc: 43, lip: 3,  fib: 5,  allergens: ['gluten'], icon: '🌿', name: 'farine_epeautre' },
+  sansgluten:   { cal: 220, prot: 5,  gluc: 48, lip: 2,  fib: 4,  allergens: [],         icon: '✨', name: 'farine_sansgluten' },
+  seigle:       { cal: 260, prot: 8,  gluc: 48, lip: 2,  fib: 7,  allergens: ['gluten'], icon: '🍂', name: 'farine_seigle' },
+  avoine:       { cal: 270, prot: 10, gluc: 47, lip: 4,  fib: 8,  allergens: ['gluten'], icon: '🥣', name: 'farine_avoine' },
+  multicereale: { cal: 255, prot: 10, gluc: 46, lip: 3,  fib: 7,  allergens: ['gluten'], icon: '🌈', name: 'farine_multicereale' },
 };
 
 // Ingredient boosts
 const ingredientData = {
-  chia:       { icon: '🌿', name: 'Graines de chia',   cal: 15, prot: 1,  gluc: 0,  lip: 1,  fib: 2,  allergens: [] },
-  quinoa:     { icon: '🟡', name: 'Quinoa',             cal: 18, prot: 2,  gluc: 2,  lip: 0,  fib: 1,  allergens: [] },
-  lin:        { icon: '🔵', name: 'Graines de lin',     cal: 12, prot: 1,  gluc: 0,  lip: 1,  fib: 2,  allergens: [] },
-  spiruline:  { icon: '💚', name: 'Spiruline',          cal: 10, prot: 4,  gluc: 0,  lip: 0,  fib: 0,  allergens: [] },
-  tournesol:  { icon: '🌻', name: 'Graines tournesol',  cal: 20, prot: 1,  gluc: 0,  lip: 2,  fib: 1,  allergens: [] },
-  curcuma:    { icon: '🟠', name: 'Curcuma',            cal: 5,  prot: 0,  gluc: 1,  lip: 0,  fib: 0,  allergens: [] },
-  noix:       { icon: '🥜', name: 'Noix & noisettes',  cal: 30, prot: 1,  gluc: 1,  lip: 3,  fib: 1,  allergens: ['noix'] },
-  proteines:  { icon: '⚗️', name: 'Protéines végétales', cal: 20, prot: 6, gluc: 1,  lip: 0,  fib: 0,  allergens: [] },
+  chia:       { icon: '🌿', name: 'ing_chia',       cal: 15, prot: 1,  gluc: 0,  lip: 1,  fib: 2,  allergens: [] },
+  quinoa:     { icon: '🟡', name: 'ing_quinoa',     cal: 18, prot: 2,  gluc: 2,  lip: 0,  fib: 1,  allergens: [] },
+  lin:        { icon: '🔵', name: 'ing_lin',        cal: 12, prot: 1,  gluc: 0,  lip: 1,  fib: 2,  allergens: [] },
+  spiruline:  { icon: '💚', name: 'ing_spiruline',  cal: 10, prot: 4,  gluc: 0,  lip: 0,  fib: 0,  allergens: [] },
+  tournesol:  { icon: '🌻', name: 'ing_tournesol',  cal: 20, prot: 1,  gluc: 0,  lip: 2,  fib: 1,  allergens: [] },
+  curcuma:    { icon: '🟠', name: 'ing_curcuma',    cal: 5,  prot: 0,  gluc: 1,  lip: 0,  fib: 0,  allergens: [] },
+  noix:       { icon: '🥜', name: 'ing_noix',       cal: 30, prot: 1,  gluc: 1,  lip: 3,  fib: 1,  allergens: ['noix'] },
+  proteines:  { icon: '⚗️', name: 'ing_proteines',  cal: 20, prot: 6, gluc: 1,  lip: 0,  fib: 0,  allergens: [] },
 };
 
 // Size config
@@ -181,10 +454,15 @@ function updatePreview() {
   setBar('fib-bar', (fib / 15) * 100);
 
   // Update summary
-  setText('summary-base', farine.icon + ' ' + farine.name);
-  setText('summary-objectif', getObjectifLabel(state.objectif));
-  setText('summary-ingredients', state.ingredients.length === 0 ? 'Aucun' :
-    state.ingredients.map(id => ingredientData[id].icon + ' ' + ingredientData[id].name).join(', '));
+  const farineName = translations[currentLang][farine.name];
+  setText('summary-base', farine.icon + ' ' + farineName);
+  
+  const objLabel = translations[currentLang]['obj_' + state.objectif];
+  setText('summary-objectif', getObjectifIcon(state.objectif) + ' ' + objLabel);
+  
+  setText('summary-ingredients', state.ingredients.length === 0 ? (currentLang === 'fr' ? 'Aucun' : 'None') :
+    state.ingredients.map(id => ingredientData[id].icon + ' ' + translations[currentLang][ingredientData[id].name]).join(', '));
+  
   const sz = sizeData[state.size];
   setText('summary-taille', sz.label + ' — ' + sz.weight);
 
@@ -206,19 +484,20 @@ function updatePreview() {
 
   // Bread name
   const recipeName = document.getElementById('recipe-name')?.value;
-  const breadName = recipeName || 'Votre ' + farine.name + (state.ingredients.length ? ' boosté' : '');
+  const breadName = recipeName || (currentLang === 'fr' ? 'Votre ' : 'Your ') + farineName + (state.ingredients.length ? (currentLang === 'fr' ? ' boosté' : ' boosted') : '');
   setText('bread-preview-name', breadName);
 }
 
+function getObjectifIcon(id) {
+  const icons = { muscle: '💪', energie: '⚡', digestion: '🌱', minceur: '🎯', immunite: '🛡️' };
+  return icons[id] || '';
+}
+
 function getObjectifLabel(id) {
-  const labels = {
-    muscle: '💪 Récupération',
-    energie: '⚡ Énergie',
-    digestion: '🌱 Digestion',
-    minceur: '🎯 Minceur',
-    immunite: '🛡️ Immunité',
-  };
-  return labels[id] || id;
+  const labelKey = 'obj_' + id;
+  const icon = getObjectifIcon(id);
+  const label = translations[currentLang][labelKey] || id;
+  return icon + ' ' + label;
 }
 
 function animateBread() {
@@ -537,6 +816,7 @@ function rate(n) {
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  changeLanguage(currentLang);
   updatePreview();
 
   const recipeInput = document.getElementById('recipe-name');
